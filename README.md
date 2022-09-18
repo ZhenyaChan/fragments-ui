@@ -10,4 +10,4 @@
 3. Enter to the terminal:
    git clone https://github.com/ZhenyaChan/fragments-ui.git
 4. Enter for installing all project dependencies: `npm i`
-5. Run the server: `npm start`
+5. Run the web app: `npm start`
