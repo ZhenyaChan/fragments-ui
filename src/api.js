@@ -23,7 +23,7 @@ export async function getUserFragments(user) {
   }
 }
 
-export async function postUserFragments(user) {
+export async function postUserFragments(user, data, type) {
   console.log('Posting user fragments data...');
   try {
     const res = await fetch(`${apiUrl}/v1/fragments`, {
@@ -34,7 +34,7 @@ export async function postUserFragments(user) {
     if (!res.ok) {
       throw new Error(`${res.status} ${res.statusText}`);
     }
-    console.log('Posted user fragments data: ', { data });
+    console.log('Posted user fragments data: ', data);
     console.log(res);
   } catch (err) {
     console.error('Unable to call POST /v1/fragment', { err });

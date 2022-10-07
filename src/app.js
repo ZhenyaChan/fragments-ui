@@ -37,8 +37,6 @@ async function init() {
     postUserFragments(user,data,type);
   }
 
-  
-
   // Log the user info for debugging purposes
   console.log({ user });
 
