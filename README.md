@@ -9,5 +9,5 @@
 2. Add the folder to workplace area in VS Code and open terminal OR navigate to the created folder using terminal
 3. Enter to the terminal:
    git clone https://github.com/ZhenyaChan/fragments-ui.git
-4. Enter for installing all project dependencies: `npm i`
+4. Enter for installing all project dependencies: `npm i` or `npm ci` (clean install) 
 5. Run the web app: `npm start`
