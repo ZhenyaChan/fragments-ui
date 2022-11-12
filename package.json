@@ -15,7 +15,7 @@
   "author": "Tran Quang Dung",
   "license": "UNLICENSED",
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.8.0"
   },
   "dependencies": {
     "aws-amplify": "^4.3.35"
