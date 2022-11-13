@@ -26,17 +26,42 @@ export async function getUserFragments(user) {
 export async function postUserFragments(user, data, type) {
   console.log('Posting user fragments data...');
   try {
+    if(type == 'application/json'){
+      data = JSON.parse(JSON.stringify(data));
+    }
+
     const res = await fetch(`${apiUrl}/v1/fragments`, {
       method: "post",
       headers: user.authorizationHeaders(),
-      body: data,
+      body: data
     });
+
     if (!res.ok) {
       throw new Error(`${res.status} ${res.statusText}`);
     }
+
     console.log('Posted user fragments data: ', data);
     console.log(res);
   } catch (err) {
     console.error('Unable to call POST /v1/fragment', { err });
+  }
+}
+
+
+export async function getUserFragmentList(user) {
+  console.log('Requesting all user fragments data...');
+  try {
+    const res = await fetch(`${apiUrl}/v1/fragments/?expand=1`, {
+      headers: user.authorizationHeaders(),
+    });
+
+    if (!res.ok) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.log('Unable to call GET /v1/fragment/?expand=1', { err });
   }
 }
