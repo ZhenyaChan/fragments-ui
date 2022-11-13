@@ -13,9 +13,11 @@ export async function getUserFragments(user) {
       // Generate headers with the proper Authorization bearer token to pass
       headers: user.authorizationHeaders(),
     });
+    
     if (!res.ok) {
       throw new Error(`${res.status} ${res.statusText}`);
     }
+
     const data = await res.json();
     console.log('Got user fragments data', { data });
   } catch (err) {
@@ -32,7 +34,12 @@ export async function postUserFragments(user, data, type) {
 
     const res = await fetch(`${apiUrl}/v1/fragments`, {
       method: "post",
-      headers: user.authorizationHeaders(),
+      //headers: user.authorizationHeaders(),
+      headers: {
+        // Include the user's ID Token in the request so we're authorized
+        Authorization: `Bearer ${user.idToken}`,
+        'Content-type': type,
+      },
       body: data
     });
 
@@ -60,7 +67,7 @@ export async function getUserFragmentList(user) {
     }
 
     const data = await res.json();
-    console.log(data);
+    console.log('Got user fragments list', { data });
   } catch (err) {
     console.log('Unable to call GET /v1/fragment/?expand=1', { err });
   }
