@@ -1,20 +1,24 @@
 import { Auth, getUser } from './auth';
-import { getUserFragments, postUserFragments } from './api';
+import { getUserFragments, getUserFragmentList, postUserFragments } from './api';
 
 async function init() {
   // Get our UI elements
   const userSection = document.querySelector('#user');
-  const loginBtn = document.querySelector('#login');
-  const logoutBtn = document.querySelector('#logout');
+  const loginButton = document.querySelector('#login');
+  const logoutButton = document.querySelector('#logout');
+  const postSection = document.querySelector('#post')
   const postButton = document.querySelector('#postButton');
+  const getButton = document.querySelector('#getButton');
+  const getListButton = document.querySelector('#getListButton');
+
 
   // Wire up event handlers to deal with login and logout.
-  loginBtn.onclick = () => {
+  loginButton.onclick = () => {
     // Sign-in via the Amazon Cognito Hosted UI (requires redirects), see:
     // https://docs.amplify.aws/lib/auth/advanced/q/platform/js/#identity-pool-federation
     Auth.federatedSignIn();
   };
-  logoutBtn.onclick = () => {
+  logoutButton.onclick = () => {
     // Sign-out of the Amazon Cognito Hosted UI (requires redirects), see:
     // https://docs.amplify.aws/lib/auth/emailpassword/q/platform/js/#sign-out
     Auth.signOut();
@@ -24,21 +28,30 @@ async function init() {
   const user = await getUser();
   if (!user) {
     // Disable the Logout button
-    logoutBtn.disabled = true;
+    logoutButton.disabled = true;
     return;
   }
 
-  // Do an authenticated request to the fragments API server and log the result
-  getUserFragments(user);
-
   postButton.onclick = () => {
     let data = document.querySelector('#data').value;
-    let type = "text/plain";
+    let type = document.querySelector('#types').value;
     postUserFragments(user,data,type);
+  }
+
+  // get the list of fragments id for the authenticated user
+  getButton.onclick = () => {
+    getUserFragments(user);
+  }
+
+  // get the list of expanded fragments for the authenticated user
+  getListButton.onclick = () => {
+    getUserFragmentList(user);
   }
 
   // Log the user info for debugging purposes
   console.log({ user });
+
+  getUserFragmentList(user);
 
   // Update the UI to welcome the user
   userSection.hidden = false;
@@ -47,7 +60,10 @@ async function init() {
   userSection.querySelector('.username').innerText = user.username;
 
   // Disable the Login button
-  loginBtn.disabled = true;
+  loginButton.disabled = true;
+  if(loginButton.disabled = true){
+    postSection.hidden = false;
+  }
 }
 
 // Wait for the DOM to be ready, then start the app
