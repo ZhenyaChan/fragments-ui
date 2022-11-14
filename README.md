@@ -8,6 +8,26 @@
 1. Create an empty folder
 2. Add the folder to workplace area in VS Code and open terminal OR navigate to the created folder using terminal
 3. Enter to the terminal:
-   git clone https://github.com/ZhenyaChan/fragments-ui.git
+   `git clone https://github.com/ZhenyaChan/fragments-ui.git`
 4. Enter for installing all project dependencies: `npm i` or `npm ci` (clean install) 
 5. Run the web app: `npm start`
+
+## How to Use the Web App
+
+- To create a new fragment:
+   1. Select the fragment type from drop-down list
+   2. Enter the data in the text field
+   3. Click on `POST` button
+   4. The Developer's Tool Console will display your newly created fragment
+- To retrieve the list of fragments IDs for the current user:
+   1. Click on `GET fragments IDs` button
+   2. The Developer's Tool Console will display the array of your existing fragments IDs
+- To retrieve the list of fragments metadata for the current user:
+   1. Click on `GET fragments expanded` button
+   2. The Developer's Tool Console will display the array of your existing fragments metadata
+
+```sh
+NOTE: the requests buttons will not work unless the web app is connected to the server URL inside .env file
+```
+
+More features of the fragments microservice are still under the development...
