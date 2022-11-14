@@ -14,7 +14,7 @@
 
 ## How to Use the Web App
 
-<img width="1792" alt="Screen Shot 2022-11-14 at 2 43 11 PM" src="https://user-images.githubusercontent.com/75372029/201751179-a2e2b375-edb1-4465-a492-0449d7215178.png">
+<img width="1080" alt="Assignment-2 Web App screenshot" src="https://user-images.githubusercontent.com/75372029/201751179-a2e2b375-edb1-4465-a492-0449d7215178.png">
 
 - To create a new fragment:
    1. Select the fragment type from drop-down list
