@@ -29,7 +29,7 @@
    2. The Developer's Tool Console will display the array of your existing fragments metadata
 
 ```sh
-NOTE: the requests buttons will not work unless the web app is connected to the server URL inside .env file
+NOTE: the requests buttons will not work unless the web app is connected to the server URL inside .env file.
 ```
 
 More features of the fragments microservice are still under the development...
