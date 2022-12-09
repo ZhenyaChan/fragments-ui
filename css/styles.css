@@ -1,0 +1,26 @@
+#postButton, #updateButton, #deleteButton, #uploadImageButton, #updateImageButton {
+    float: right; 
+    margin-left: 5px;
+}
+
+#user {
+    text-align: center;
+}
+
+nav {
+    float: right; 
+}
+
+strong {
+    margin: 30px 0 10px 0;
+    display: flex;
+}
+
+#file {
+    margin: 0 0 10px 0;
+}
+
+#result {
+    text-align: center;
+    margin-top: 60px;
+}
