@@ -83,7 +83,7 @@ export async function getFragmentDataByID(user, id) {
       const res = await fetch(`${apiUrl}/v1/fragments/${id}`, {
         headers: user.authorizationHeaders(),
       });
-    
+
 
       if (!res.ok) {
         throw new Error(`${res.status} ${res.statusText}`);
@@ -101,7 +101,8 @@ export async function getFragmentDataByID(user, id) {
         // see https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
         var objectURL = URL.createObjectURL(data);
         image.src = objectURL;
-      } else if (type.includes("json")) {
+      }
+      if (type.includes("json")) {
         const data = await res.json();
         console.log(data);
       } 
@@ -166,8 +167,6 @@ export async function deleteFragmentDataByID(user, id) {
 
 
 export async function updateFragmentByID(user, data, type, id) {
-  console.log(`Updating user fragment data by ID: ${id}...`);
-
   try {
     if (id != "") {
       console.log(`Updating user fragment data by ID: ${id}...`);

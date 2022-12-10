@@ -55,7 +55,7 @@ async function init() {
 
   // delete the fragment by id
   deleteButton.onclick = () => {
-    let id = document.querySelector('#id').value
+    let id = document.querySelector('#id').value;
     deleteFragmentDataByID(user, id);
   }
 
