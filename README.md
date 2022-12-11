@@ -32,4 +32,6 @@
 NOTE: the requests buttons will not work unless the web app is connected to the server URL inside .env file.
 ```
 
-More features of the fragments microservice are still under the development...
+## Video Walk-through
+
+The video walk-through for this project is available via this link: [fragments-microservice](https://www.youtube.com/watch?v=E4285LQxbhA)
